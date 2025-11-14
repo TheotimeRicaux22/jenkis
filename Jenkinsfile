@@ -42,22 +42,6 @@ Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
-            steps {
-                timeout(time: 3, unit: 'MINUTES') {
-                    retry(5) {
-                        sh './flakey-deploy.sh'
-                    }
-                }
-            }
-        }
-    }
-}
-
-Jenkinsfile (Declarative Pipeline)
-pipeline {
-    agent any
-    stages {
         stage('Test') {
             steps {
                 sh 'echo "Fail!"; exit 1'
@@ -83,4 +67,5 @@ pipeline {
         }
     }
 }
+
 
